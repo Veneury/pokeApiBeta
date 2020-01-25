@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div *ngIf="ver==true">
+        <button class="btn btn-secondary" [routerLink]="['home']">Volver al Home</button>
+        <div class="row" *ngFor="let poke of pokedetal['forms']; let i = index;">
+            <div class="col-md-12">
+                <h5 class="text-center">Nombre: < {{poke["name"] | uppercase}}>
+                </h5>
+
+            </div>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Tipo Poder: </h5>
+                <div class="" *ngFor="let poke of pokedetal['types']">
+                    {{poke["type"]["name"] | uppercase}}
+                </div>
+            </div>
+                <div class="col-md-6">
+                    <h5>Habilidades</h5>
+                    <div class="" *ngFor="let poke of pokedetal['abilities']; let i = index;">
+                        
+    
+                            {{poke["ability"]["name"] | uppercase}}
+    
+                      
+                    </div>
+                </div>
+            
+        </div>
+
+
+
+    </div>
+
+    <div *ngIf="ver==false">
+        <h1 class="text-center " style="margin-top: 25%;">NO HAY POKEMON CON ESTE NOMBRE <strong>--></strong> {{pokemon}} <strong><--</strong></h1>
+        <button class="btn btn-danger text-center" [routerLink]="['home']">Volver al Home</button>
+    </div>
+</div>
